@@ -23,8 +23,4 @@ Consider adding some styling.
 
 5. Create a new component called `Card`, that will be similar to `https://getbootstrap.com/docs/4.0/components/card/#images`. It should contain an image, title and an excerpt of the description (20 characters).
 
-6. Using `https://properties-34748.firebaseio.com/similar/{LISTING ID}.json`, adapt your API to fetch the IDs of similar listings.
-
-7. On the Details Page, utilising the `Card` component, display the similar listings underneath the original listing.
-
 Consider adding some styling.
