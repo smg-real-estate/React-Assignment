@@ -1,6 +1,6 @@
-import React from "react";
-import { mount } from "enzyme";
-import { MemoryRouter, Route } from "react-router-dom";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import DetailPage from ".";
 
 jest.mock("../../assets/listings", () => [
@@ -17,18 +17,19 @@ jest.mock("../../assets/listings", () => [
 ]);
 
 describe("<DetailPage />", () => {
-  let wrapper: any;
   beforeEach(() => {
-    wrapper = mount(
+    render(
       <MemoryRouter initialEntries={["/details/1"]}>
-        <Route path="/details/:listingId">
-          <DetailPage />
-        </Route>
+        <Routes>
+          <Route path="/details/:listingId" element={<DetailPage />} />
+        </Routes>
       </MemoryRouter>
     );
   });
 
   it("should render", () => {
-    expect(wrapper).toBeTruthy();
+    // This is a basic check to ensure the component is rendered. 
+    // For more specific checks, you can query elements inside the component.
+    expect(screen.getByText(/Weitsicht/i)).toBeInTheDocument();
   });
 });

@@ -1,9 +1,14 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useParams } from "react-router-dom";
 import listings from "../../assets/listings";
 
+// Define the interface to specify expected parameters
+interface Params extends Record<string, string> {
+  listingId: string;
+}
+
 const DetailsPage: FC = () => {
-  const { listingId } = useParams();
+  const { listingId } = useParams<Params>()
   const listing = listings.find((l: any) => l.id === listingId);
 
   if (!listing) {

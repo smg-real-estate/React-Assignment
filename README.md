@@ -17,7 +17,7 @@ This assignment consists of the following challenges:
 
 Consider adding some styling.
 
-3. Currently `any` is being used to define the type of the retrieved listing. Apply the correct type for the listing that has been found on line 7 in the `DetailsPage/index.tsx`.
+3. Currently `any` is being used to define the type of the retrieved listing. Apply the correct type for the listing that has been found on line 12 in the `DetailsPage/index.tsx`.
 
 4. Set up an express server to serve the listings and update the existing project to utilise your new API.
 
