@@ -1,18 +1,13 @@
-import React from "react";
-import { BrowserRouter as ReactRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as ReactRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./containers/HomePage";
 import DetailsPage from "./containers/DetailsPage";
 
 const Router = () => (
   <ReactRouter>
-    <Switch>
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route path="/details/:listingId">
-        <DetailsPage />
-      </Route>
-    </Switch>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/details/:listingId" element={<DetailsPage />} />
+    </Routes>
   </ReactRouter>
 );
 
