@@ -1,8 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>smg-real-estate/renovate-bot:smg-js-lib.json5",
-    "github>smg-real-estate/renovate-bot//teams/fe-shared.json5",
+    "smg-real-estate/renovate-bot:smg-js-lib.json5",
+    "smg-real-estate/renovate-bot//teams/fe-shared.json5",
     ":skipStatusChecks",
     "group:allNonMajor"
   ]
