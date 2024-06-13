@@ -17,7 +17,7 @@ jest.mock("../../assets/listings", () => [
 ]);
 
 describe("<DetailPage />", () => {
-  beforeEach(() => {
+  it("should render", () => {
     render(
       <MemoryRouter initialEntries={["/details/1"]}>
         <Routes>
@@ -25,9 +25,6 @@ describe("<DetailPage />", () => {
         </Routes>
       </MemoryRouter>
     );
-  });
-
-  it("should render", () => {
     // This is a basic check to ensure the component is rendered. 
     // For more specific checks, you can query elements inside the component.
     expect(screen.getByText(/Weitsicht/i)).toBeInTheDocument();
