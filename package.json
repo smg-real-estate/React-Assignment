@@ -19,17 +19,11 @@
     "start": "react-scripts start",
     "build": "cross-env CI=true react-scripts build",
     "build:check": "tsc --noEmit && cross-env CI=true react-scripts build",
-    "test": "react-scripts test",
+    "test": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint \"**/*.{ts,tsx}\" --max-warnings 0",
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "prepare": "husky"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -49,11 +43,15 @@
     "@testing-library/jest-dom": "6.6.2",
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
-    "eslint": "^8.57.0",
-    "@typescript-eslint/parser": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
     "cross-env": "^7.0.3",
-    "shx": "^0.3.4",
-    "husky": "^9.0.11"
-  }
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^15.0.0",
+    "husky": "^9.0.11",
+    "shx": "^0.3.4"
+  },
+  "type": "module"
 }
