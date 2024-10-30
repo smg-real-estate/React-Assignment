@@ -1,0 +1,7 @@
+echo "Running pre-push checks..."
+
+# Run linting
+npm run lint || exit 1
+
+# Run type check and build
+npm run build:check || exit 1 
