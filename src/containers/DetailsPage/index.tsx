@@ -9,7 +9,8 @@ interface Params extends Record<string, string> {
 
 const DetailsPage: FC = () => {
   const { listingId } = useParams<Params>()
-  const listing = listings.find((l: any) => l.id === listingId);
+  // @ts-expect-error - TODO: fix this
+  const listing = listings.find((l: unknown) => l.id === listingId);
 
   if (!listing) {
     return (
