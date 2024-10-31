@@ -52,8 +52,8 @@
     "eslint": "^8.57.0",
     "@typescript-eslint/parser": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "cross-env": "^7.0.3",
-    "shx": "^0.3.4",
-    "husky": "^9.0.11"
+    "cross-env": "7.0.3",
+    "shx": "0.3.4",
+    "husky": "9.1.6"
   }
 }
