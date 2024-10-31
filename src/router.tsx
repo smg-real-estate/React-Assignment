@@ -1,14 +1,18 @@
-import { BrowserRouter as ReactRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./containers/HomePage";
-import DetailsPage from "./containers/DetailsPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "pages/HomePage";
+import DetailsPage from "pages/DetailsPage";
 
-const Router = () => (
-  <ReactRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/details/:listingId" element={<DetailsPage />} />
-    </Routes>
-  </ReactRouter>
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/details/:listingId",
+    element: <DetailsPage />,
+  },
+]);
+
+const Router = () => <RouterProvider router={router} />;
 
 export default Router;

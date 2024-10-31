@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import DetailPage from ".";
 
-jest.mock("../../assets/listings", () => [
+jest.mock("assets/listings.json", () => [
   {
     id: "1",
     title: "Weitsicht in die Berge",

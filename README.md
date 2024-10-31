@@ -1,26 +1,35 @@
-# Homegate React Assignment
+# README
 
-## Start
+Welcome to the _SMG Real Estate_ React Assignment! 🤩
 
-`yarn install`
-`yarn start`
+## Use of AI tooling
+
+You usually use AI tools? Great! Please use them. At SMG we do as well!
+
+## Setup
+
+With either yarn or npm installed, run:
+
+```bash
+yarn install | npm install
+yarn start | npm start
+```
 
 ## Instructions
 
-Here is the repository for the react software engineer assignment.
+This is a Typescript project.
 
-This assignment consists of the following challenges:
+Please complete the following challenges in order:
 
-1. Utilise the Listing component (`src/components/Listing`) and display all the listings (`/src/assets/listings.ts`) on the Home Page.
+1. Utilise the Listing component (`src/components/Listing`) and display all the listings (`/src/assets/listings.json`) on the Home Page.
 
-2. Allow the user to click on a listing and navigate to the specific listing details page.
+1. Allow the user to click on a listing and navigate to the specific listing details page.
 
-Consider adding some styling.
+1. Set up an express server with an API to serve the listings. Then update the existing project to utilise your new API instead of the static data.
 
-3. Currently `any` is being used to define the type of the retrieved listing. Apply the correct type for the listing that has been found on line 12 in the `DetailsPage/index.tsx`.
+1. Create a new component called `Card`, that will be similar to `https://getbootstrap.com/docs/4.0/components/card/#images`.
+It should contain an image, title and an excerpt of the description (20 characters).
 
-4. Set up an express server to serve the listings and update the existing project to utilise your new API.
+1. Add some basic styling 💅
 
-5. Create a new component called `Card`, that will be similar to `https://getbootstrap.com/docs/4.0/components/card/#images`. It should contain an image, title and an excerpt of the description (20 characters).
-
-Consider adding some styling.
+1. Add unit tests for your components.

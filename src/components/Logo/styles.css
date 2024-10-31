@@ -1,0 +1,11 @@
+.logo {
+  width: 266px;
+  height: 45px;
+}
+
+/* For responsive sizing */
+.logo.responsive {
+  width: 100%;
+  height: auto;
+  max-width: 266px;
+} 

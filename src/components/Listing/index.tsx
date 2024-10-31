@@ -1,17 +1,27 @@
-import { FC } from "react";
-
 interface ListingProps {
-  imgSrc: string;
+  imgSrc?: string;
   title: string;
   description?: string;
+  className?: string;
 }
 
-const Listing: FC<ListingProps> = ({ imgSrc, title, description }) => {
+const Listing = ({ 
+  imgSrc, 
+  title, 
+  description,
+}: ListingProps) => {
   return (
-    <div className="listing">
-      {imgSrc && <img src={imgSrc} alt="" />}
-      <h2>{title}</h2>
-      {description && <p>{description}</p>}
+    <div>
+      {imgSrc && (
+        <img 
+          src={imgSrc} 
+          alt={`${title}`}
+        />
+      )}
+      <div>
+        <h3>{title}</h3>
+        {description && <p>{description}</p>}
+      </div>
     </div>
   );
 };
