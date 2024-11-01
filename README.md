@@ -28,11 +28,10 @@ This is a TypeScript React project. Complete the following challenges in order:
 
 1. **Card Component**
    - Create a new reusable `Card` component
-   - Reference style: [Bootstrap Cards with Images](https://getbootstrap.com/docs/4.0/components/card/#images)
    - Required elements:
      - Featured image
      - Title
-     - Description (truncated to 20 characters)
+     - Description (truncated to 100 characters)
 
 1. **Styling**
    - Add responsive CSS styling
