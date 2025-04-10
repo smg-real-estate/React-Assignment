@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-syntax-jsx": "7.25.9",
+    "@types/express": "^5.0.1",
     "@types/jest": "29.5.14",
     "@types/node": "22.14.0",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
+    "express": "5.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.30.0",
@@ -16,13 +18,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:backend": "node ./src/server",
     "build": "cross-env CI=true react-scripts build",
     "build:check": "tsc --noEmit && cross-env CI=true react-scripts build",
     "test": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx}\" --max-warnings 0",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker-build": "docker build -t assignment-backend .",
+    "docker-run": "docker run -v ./:/app -p 3000:3000  -t assignment-backend /bin/sh -c '/usr/local/bin/yarn --cwd=/app start:backend'"
   },
   "browserslist": {
     "production": [
