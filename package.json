@@ -24,7 +24,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx}\" --max-warnings 0",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker-build": "docker build -t assignment-backend .",
+    "docker-run": "docker run -v ./src:/app -t assignment-backend ."
   },
   "browserslist": {
     "production": [
