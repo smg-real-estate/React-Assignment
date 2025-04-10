@@ -7,6 +7,12 @@ RUN apk add --no-cache sqlite valkey
 # Set working directory
 WORKDIR /app
 
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
 # Create directories for data and valkey
 RUN mkdir -p /app/data /app/config/valkey && \
     chown -R node:node /app/data /app/config
