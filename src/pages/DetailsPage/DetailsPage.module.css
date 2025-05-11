@@ -1,0 +1,58 @@
+.detailsContainer {
+  background-color: #fff; /* White background for the details section */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.listingImage {
+  width: 100%;
+  max-width: 600px; /* Limit image width */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.listingTitle {
+  font-size: 2.2rem;
+  color: #1a252f;
+  margin-bottom: 10px;
+}
+
+.listingDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  white-space: pre-wrap; /* Preserve line breaks from description */
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  color: #007bff; /* Consistent link color */
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.notFound {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.notFoundTitle {
+  font-size: 1.8rem;
+  color: #e74c3c; /* A soft red for not found title */
+  margin-bottom: 10px;
+}
+
+.notFoundMessage {
+  font-size: 1.1rem;
+  color: #555;
+} 

@@ -1,0 +1,18 @@
+.pageTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #34495e; /* A deep blue, more distinct for main titles */
+}
+
+/* Specific styles for listings grid if needed, 
+   otherwise global .listings-grid will apply */
+.homeListingsGrid {
+  /* Example: add more specific spacing if needed */
+  /* gap: 25px; */
+}
+
+/* Styling for the link wrapping the card, if needed beyond global .listing-link */
+.homeListingLink {
+  /* display: block; ensures the link takes up the card's space correctly for hover effects if any */
+} 
