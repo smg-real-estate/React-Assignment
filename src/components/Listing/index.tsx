@@ -5,7 +5,7 @@ interface ListingProps {
   className?: string;
 }
 
-const Listing = ({ 
+const Listing2 = ({ 
   imgSrc, 
   title, 
   description,
@@ -26,4 +26,4 @@ const Listing = ({
   );
 };
 
-export default Listing;
+export default Listing2;
