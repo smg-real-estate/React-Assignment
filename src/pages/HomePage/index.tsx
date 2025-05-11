@@ -1,5 +1,5 @@
 import Header from 'components/Header';
-import Listing from 'components/Listing';
+import Card from 'components/Card';
 import listingsData from 'assets/listings.json';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const Home = () => {
         <div className="listings-grid">
           {listingsData.map((listing) => (
             <Link key={listing.id} to={`/details/${listing.id}`} className="listing-link">
-              <Listing
+              <Card
                 title={listing.title}
                 description={listing.description}
                 imgSrc={listing.images && listing.images.length > 0 ? listing.images[0] : undefined}
