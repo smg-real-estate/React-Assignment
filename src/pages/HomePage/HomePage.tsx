@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import listingsData from '../../assets/listings.json';
 import styles from './HomePage.module.css';
@@ -23,12 +24,13 @@ const HomePage: React.FC = () => {
       <h1>Property Listings</h1>
       <div className={styles.listingsGrid}>
         {listings.map((listing) => (
-          <Card
-            key={listing.id}
-            imageUrl={listing.images[0]} // Use the first image as the featured image
-            title={listing.title}
-            description={listing.description}
-          />
+          <Link key={listing.id} to={`/details/${listing.id}`} className={styles.cardLink}>
+            <Card
+              imageUrl={listing.images[0]} // Use the first image as the featured image
+              title={listing.title}
+              description={listing.description}
+            />
+          </Link>
         ))}
       </div>
     </div>
