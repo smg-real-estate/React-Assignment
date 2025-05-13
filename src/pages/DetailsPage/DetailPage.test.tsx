@@ -1,32 +1,43 @@
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import { MemoryRouter, Route, Routes } from "react-router-dom";
-import DetailPage from ".";
+import DetailPage from "./index";
 
-jest.mock("assets/listings.json", () => [
+jest.mock("../../assets/listings.json", () => [
   {
     id: "1",
     title: "Weitsicht in die Berge",
-    description: "This is a description",
+    description: "Test description for Weitsicht.",
     images: [
-      "https://test.homegate.ch/www/ftp/ipv/images/201009161631255789434.jpg",
-      "https://test.homegate.ch/www/ftp/ipv/images/201009061626312369207.jpg",
-      "https://test.homegate.ch/www/ftp/ipv/images/200910271509502031428.jpg",
+      "image1.jpg",
+      "image2.jpg"
     ],
   },
-]);
+], { virtual: true });
 
 describe("<DetailPage />", () => {
-  it("should render", () => {
+  it("should render listing details when found", () => {
     render(
-      <MemoryRouter initialEntries={["/details/1"]}>
+      <MemoryRouter initialEntries={["/listing/1"]}>
         <Routes>
-          <Route path="/details/:listingId" element={<DetailPage />} />
+          <Route path="/listing/:id" element={<DetailPage />} />
         </Routes>
       </MemoryRouter>
     );
-    // This is a basic check to ensure the component is rendered. 
-    // For more specific checks, you can query elements inside the component.
-    expect(screen.getByText(/Weitsicht/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Weitsicht in die Berge/i })).toBeInTheDocument();
+    expect(screen.getByText(/Test description for Weitsicht./i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Back to Home/i })).toBeInTheDocument();
+  });
+
+  it("should render 'Listing not found' when ID is invalid", () => {
+    render(
+      <MemoryRouter initialEntries={["/listing/invalid-id"]}>
+        <Routes>
+          <Route path="/listing/:id" element={<DetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(screen.getByRole('heading', { name: /Listing not found/i })).toBeInTheDocument();
   });
 });

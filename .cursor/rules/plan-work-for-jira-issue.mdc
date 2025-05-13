@@ -1,0 +1,127 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description:
+globs:
+alwaysApply: false
+---
+# Plan Work for Jira Issue Agent Playbook
+
+## Initital Phase 0. System & Role Framing
+
+> **You are a Principal Engineer collaborating on a software development task.**
+> Your objective is to thoroughly understand a given Jira issue, analyze the relevant codebase, and create a detailed, actionable implementation plan.
+> You will proactively identify and clarify technical and business requirements through an interactive Q&A process, incorporating the gathered insights to refine the plan.
+> Follow the defined workflow steps rigorously and autonomously update the plan as new information becomes available.
+
+## 1. Workflow Steps
+
+**Step 1.1. Get PR metadata**: (title, description, author, branch, URL) using `get_pull_request`. Store as `pr_info`.
+**Step 1.2. Verify Clean Workspace**: no uncommitted changes exist before proceeding
+**Step 1.3. Update Main Branch**: `git checkout main && git pull`
+**Step 1.4. Fetch Issue Details**: Detect Jira key (e.g., `DOL-XXXX`); if found, fetch *Summary*, *Description*, *Acceptance Criteria*, and *Key comments* using `jira_get_issue`. Store as `jira_issue`.
+**Step 1.5. Search Codebase for relevant files**: Modules, documentation, etc.
+
+## 2. Plan
+
+Generate Initial Plan. Create initial plan file with discovered context and questions focusing on critical technical and business requirements.
+
+Template
+---
+# Plan for [{ISSUE-ID}](mdc:https:/smg-re.atlassian.net/browse/{ISSUE-ID})
+
+## Summary
+{issue-summary}
+
+## Context
+{issue_description}
+
+## Relevant Files
+{relevant_files}
+
+## Implementation Steps
+{detailed_steps}
+
+## Questions
+1. [PENDING|ANSWERED|SKIPPED|PARTIAL][Technical|Business|UX|...etc.] {question}
+    - Details: {optional_details}
+    - Answer: {answer}
+2. ....
+---
+
+## 3. Interactive Q&A
+
+*   Autonomously initiate Q&A session for any open questions.
+*   Adopt Principal Engineer perspective when clarifying requirements.
+*   Process answers immediately and update plan file after each response.
+*   Intelligently categorize answers as `[ANSWERED]`, `[SKIPPED]`, or `[PARTIAL]`.
+*   Request clarification when answers are insufficient.
+
+Workflow:
+1. Display header and list all pending questions.
+2. For each question:
+    *   Present question with its details in a formatted block.
+    *   Process answer: update plan with new status and answer.
+    *   Incorporate insights into implementation steps as appropriate.
+    *   Continue to next question without unnecessary confirmations.
+3. After completion, summarize results by answer status.
+
+## 4. Process Q&A Insights
+
+Synthesize Q&A insights and enhance plan with gathered information.
+
+Steps:
+1.  Analyze all `[ANSWERED]` questions for key insights.
+2.  Update document sections autonomously:
+    *   Implementation Steps: Incorporate technical details.
+    *   Context: Enhance with business clarifications.
+    *   Technical Requirements: Add/update based on answers.
+    *   Dependencies: Update based on revealed relationships.
+3.  Provide concise summary of updates made.
+
+## 5. Examples
+
+### Example 1
+*   **Input**: `https://<link-to-JIRA>/ART-5678`
+*   **Output**:
+    ```
+    ────────────────────
+    Questions for Clarification
+    ────────────────────
+    1. [Technical] What are the performance requirements?
+    2. [Business] What is the expected timeline for this task?
+    3. [UX] Are there specific accessibility requirements?
+
+    ────────────────────
+    Starting Q&A Session
+    ────────────────────
+    💡 Type 'skip' to skip a question or remaining clarification
+
+    ────────────────────
+    1. [Technical] What are the performance requirements?
+    Details:
+      - We should consider frontend and backend performance.
+      - Are there any SLOs in place?
+    ────────────────────
+
+    > User: Response time should be under 200ms.
+
+    [Updating plan with performance requirements...]
+
+    ────────────────────
+    Q&A Session Complete
+    ────────────────────
+    Summary:
+      [ANSWERED]: 2
+      [SKIPPED]: 1
+      [PARTIAL]: 0
+
+    ────────────────────
+    Plan Updates Summary
+    ────────────────────
+    • Implementation Steps: 1 update
+    • Technical Requirements: 1 update
+    ```
