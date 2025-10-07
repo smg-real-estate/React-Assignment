@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import listings from "assets/listings.json";
 import Header from "components/Header";
 
@@ -10,6 +10,9 @@ const DetailsPage = () => {
     <>
       <Header />
       <main>
+        <p>
+          <Link to="/">← Back to listings</Link>
+        </p>
         {!listing ? (
           <>
           <h2>Listing not found</h2>

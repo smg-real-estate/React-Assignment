@@ -25,8 +25,7 @@ describe("<DetailPage />", () => {
         </Routes>
       </MemoryRouter>
     );
-    // This is a basic check to ensure the component is rendered. 
-    // For more specific checks, you can query elements inside the component.
     expect(screen.getByText(/Weitsicht/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /back to listings/i })).toHaveAttribute('href', '/');
   });
 });
