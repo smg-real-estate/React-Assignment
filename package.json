@@ -5,7 +5,7 @@
   "dependencies": {
     "@babel/plugin-syntax-jsx": "7.27.1",
     "@types/jest": "30.0.0",
-    "@types/node": "22.18.8",
+    "@types/node": "24.10.4",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "react": "18.3.1",
